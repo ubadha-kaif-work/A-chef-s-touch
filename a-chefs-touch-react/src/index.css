@@ -199,7 +199,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../assets/images/hero.png');
+  background-image: url('/assets/images/hero.png');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -223,6 +223,23 @@ a {
   transform: translateY(20px);
   opacity: 0;
   animation: fadeUp 1s ease forwards 0.5s;
+}
+
+/* Specific Menu Page Hero Styles */
+.menu-hero {
+  min-height: 40vh;
+  height: auto;
+  align-items: flex-end;
+  padding-bottom: 4rem;
+}
+
+.menu-hero-content {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.menu-page-title {
+  font-size: 3.5rem;
 }
 
 .hero-badge {
@@ -619,6 +636,10 @@ a {
     font-size: 1.5rem;
   }
 
+  .menu-page-title {
+    font-size: 2.5rem;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -649,4 +670,30 @@ a {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: var(--transition-fast);
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
 }
