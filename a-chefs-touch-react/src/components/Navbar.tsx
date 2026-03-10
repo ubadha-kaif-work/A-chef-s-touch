@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -65,7 +66,10 @@ const Navbar: React.FC = () => {
                         </>
                     )}
                 </div>
-                <a href="#footer" className="cta-contact" onClick={(e) => handleHashClick(e, '#footer')}>Contact Us</a>
+                <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <ThemeToggle />
+                    <a href="#footer" className="cta-contact" onClick={(e) => handleHashClick(e, '#footer')}>Contact Us</a>
+                </div>
                 <div
                     className="mobile-menu-btn"
                     id="mobile-menu-btn"
