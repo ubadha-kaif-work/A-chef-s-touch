@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import AnimatedLogo from './AnimatedLogo';
 
 const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -47,7 +48,7 @@ const Navbar: React.FC = () => {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
             <div className="navbar-container">
                 <Link to="/" className="logo">
-                    <i className="fa-solid fa-hat-chef logo-icon"></i>
+                    <AnimatedLogo />
                     <span className="logo-text">A Chef's Touch</span>
                 </Link>
                 <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
