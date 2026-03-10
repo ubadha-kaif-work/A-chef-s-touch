@@ -44,10 +44,10 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar" aria-label="Main Navigation">
             <div className="navbar-container">
                 <Link to="/" className="logo">
-                    <i className="fa-solid fa-hat-chef logo-icon"></i>
+                    <i className="fa-solid fa-hat-chef logo-icon" aria-hidden="true"></i>
                     <span className="logo-text">A Chef's Touch</span>
                 </Link>
                 <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
@@ -69,9 +69,11 @@ const Navbar: React.FC = () => {
                 <div
                     className="mobile-menu-btn"
                     id="mobile-menu-btn"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded={menuOpen}
                     onClick={() => setMenuOpen(!menuOpen)}
                 >
-                    <i className={`fa-solid ${menuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+                    <i className={`fa-solid ${menuOpen ? 'fa-xmark' : 'fa-bars'}`} aria-hidden="true"></i>
                 </div>
             </div>
         </nav>

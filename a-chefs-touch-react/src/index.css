@@ -34,6 +34,25 @@ body {
   overflow-x: hidden;
 }
 
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -156,6 +175,10 @@ a {
   color: var(--accent);
 }
 
+.nav-link:active {
+  transform: scale(0.95);
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -183,6 +206,10 @@ a {
 .cta-contact:hover {
   background: var(--accent);
   color: #fff;
+}
+
+.cta-contact:active {
+  transform: scale(0.95);
 }
 
 .mobile-menu-btn {
@@ -338,6 +365,11 @@ a {
   box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
 }
 
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 10px rgba(249, 115, 22, 0.4);
+}
+
 .delivery-badge {
   font-size: 0.95rem;
   color: var(--accent);
@@ -370,6 +402,11 @@ a {
   transform: translateY(-10px);
   border-color: rgba(249, 115, 22, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feature-card:active {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .feature-icon {
@@ -435,6 +472,17 @@ a {
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
   border-color: rgba(249, 115, 22, 0.4);
+}
+
+.menu-item-card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.menu-item-card:active {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
 .menu-img-wrapper {
@@ -564,9 +612,14 @@ a {
   transition: var(--transition-fast);
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus {
   background: var(--accent);
   border-color: var(--accent);
+}
+
+.social-links a:active {
+  transform: scale(0.9);
 }
 
 .footer-contact h3 {

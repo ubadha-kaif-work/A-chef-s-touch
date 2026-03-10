@@ -57,10 +57,10 @@ const Home: React.FC = () => {
                     </p>
                     <div className="hero-btns">
                         <a href="#menu" className="btn btn-primary">
-                            Explore Menu <i className="fa-solid fa-arrow-right"></i>
+                            Explore Menu <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
                         <div className="delivery-badge">
-                            <i className="fa-solid fa-motorcycle"></i> Free Delivery Available
+                            <i className="fa-solid fa-motorcycle" aria-hidden="true"></i> Free Delivery Available
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,7 @@ const Home: React.FC = () => {
 
                         <div className="text-center mt-16 reveal">
                             <Link to="/menu" className="btn btn-primary">
-                                View Full Menu <i className="fa-solid fa-arrow-right"></i>
+                                View Full Menu <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </Link>
                         </div>
                     </div>
