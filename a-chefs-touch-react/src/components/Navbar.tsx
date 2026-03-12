@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -14,6 +13,20 @@ const Navbar: React.FC = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Handle body scroll lock
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.classList.add('body-lock');
+        } else {
+            document.body.classList.remove('body-lock');
+        }
+
+        // Cleanup in case the component unmounts while the menu is open
+        return () => {
+            document.body.classList.remove('body-lock');
+        };
+    }, [menuOpen]);
 
     // Close menu when location changes
     useEffect(() => {
@@ -56,7 +69,7 @@ const Navbar: React.FC = () => {
                         <>
                             <a href="#home" className="nav-link" onClick={(e) => handleHashClick(e, '#home')}>Home</a>
                             <a href="#why-us" className="nav-link" onClick={(e) => handleHashClick(e, '#why-us')}>Why Us</a>
-                            <a href="#menu" className="nav-link" onClick={(e) => handleHashClick(e, '#menu')}>Menu</a>
+                            <Link to="/menu" className="nav-link">Menu</Link>
                         </>
                     ) : (
                         <>
@@ -66,10 +79,7 @@ const Navbar: React.FC = () => {
                         </>
                     )}
                 </div>
-                <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <ThemeToggle />
-                    <a href="#footer" className="cta-contact" onClick={(e) => handleHashClick(e, '#footer')}>Contact Us</a>
-                </div>
+                <a href="#footer" className="cta-contact" onClick={(e) => handleHashClick(e, '#footer')}>Contact Us</a>
                 <div
                     className="mobile-menu-btn"
                     id="mobile-menu-btn"
