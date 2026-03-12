@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/FeatureCard";
 import MenuItemCard from "../components/MenuItemCard";
-import MenuItemCard from "../components/MenuItemCard";
 import TestimonialCard from "../components/TestimonialCard";
 
 const testimonialsData = [
