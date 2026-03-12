@@ -2,7 +2,41 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/FeatureCard";
 import MenuItemCard from "../components/MenuItemCard";
+import MenuItemCard from "../components/MenuItemCard";
 import TestimonialCard from "../components/TestimonialCard";
+
+const testimonialsData = [
+    {
+        name: "Sarah Ahmed",
+        review: "The Mutton Haleem here is absolutely divine. Perfect balance of spices and the texture is incredibly rich. Just like homemade!",
+        rating: 5,
+        date: "March 10, 2026"
+    },
+    {
+        name: "Farhaan K.",
+        review: "Ordered the Chicken Tikka Cones for a family gathering and they were a massive hit. The kids loved them and the delivery was exactly on time.",
+        rating: 5,
+        date: "February 28, 2026"
+    },
+    {
+        name: "Ayesha S.",
+        review: "The best place in Vaniyambadi for authentic Ramzan snacks. The Spring Chicken is perfectly crispy every single time.",
+        rating: 4,
+        date: "March 05, 2026"
+    },
+    {
+        name: "Rizwan M.",
+        review: "Their Butter Chicken gravy is insanely good. I highly recommend pre-ordering it for weekend dinners. Portions are generous too.",
+        rating: 5,
+        date: "March 11, 2026"
+    },
+    {
+        name: "Zainab Faheem",
+        review: "I’ve tried almost all their desserts. The Lab E Khaas is an absolute must-try! Very premium packaging and great taste.",
+        rating: 5,
+        date: "January 15, 2026"
+    }
+];
 
 const Home: React.FC = () => {
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -47,12 +81,23 @@ const Home: React.FC = () => {
         if (!carousel) return;
 
         const scrollInterval = setInterval(() => {
-            // Check if we've reached the end
-            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                // Instantly snap back to the start
-                carousel.scrollTo({ left: 0, behavior: "smooth" });
+            // Get exact half total scroll width (which represents 1 full original set of cards)
+            // Using scrollWidth / 2 works perfectly since we duplicated the exact same elements
+            const halfWidth = carousel.scrollWidth / 2;
+
+            // Check if we've scrolled past the first set and are now viewing the cloned set
+            if (carousel.scrollLeft >= halfWidth - 10) {
+                // Instantly invisibly physically snap back to identically-looking start
+                carousel.scrollTo({ left: 0, behavior: "instant" as ScrollBehavior });
+
+                // Then immediately start the smooth scroll to the next item
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        carousel.scrollBy({ left: 380, behavior: "smooth" });
+                    });
+                });
             } else {
-                // Scroll to the next card (assuming roughly 380px per card with gap)
+                // Normal smooth scroll to the next card
                 carousel.scrollBy({ left: 380, behavior: "smooth" });
             }
         }, 3000); // Scroll every 3 seconds
@@ -226,36 +271,15 @@ const Home: React.FC = () => {
                 <div className="container">
                     <h2 className="section-title text-center">What Our Customers Say</h2>
                     <div className="testimonial-carousel mt-16" ref={carouselRef}>
-                        <TestimonialCard
-                            name="Sarah Ahmed"
-                            review="The Mutton Haleem here is absolutely divine. Perfect balance of spices and the texture is incredibly rich. Just like homemade!"
-                            rating={5}
-                            date="March 10, 2026"
-                        />
-                        <TestimonialCard
-                            name="Farhaan K."
-                            review="Ordered the Chicken Tikka Cones for a family gathering and they were a massive hit. The kids loved them and the delivery was exactly on time."
-                            rating={5}
-                            date="February 28, 2026"
-                        />
-                        <TestimonialCard
-                            name="Ayesha S."
-                            review="The best place in Vaniyambadi for authentic Ramzan snacks. The Spring Chicken is perfectly crispy every single time."
-                            rating={4}
-                            date="March 05, 2026"
-                        />
-                        <TestimonialCard
-                            name="Rizwan M."
-                            review="Their Butter Chicken gravy is insanely good. I highly recommend pre-ordering it for weekend dinners. Portions are generous too."
-                            rating={5}
-                            date="March 11, 2026"
-                        />
-                        <TestimonialCard
-                            name="Zainab Faheem"
-                            review="I’ve tried almost all their desserts. The Lab E Khaas is an absolute must-try! Very premium packaging and great taste."
-                            rating={5}
-                            date="January 15, 2026"
-                        />
+                        {[...testimonialsData, ...testimonialsData].map((t, index) => (
+                            <TestimonialCard
+                                key={index}
+                                name={t.name}
+                                review={t.review}
+                                rating={t.rating}
+                                date={t.date}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>
