@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/FeatureCard";
 import MenuItemCard from "../components/MenuItemCard";
 import TestimonialCard from "../components/TestimonialCard";
 
 const Home: React.FC = () => {
+    const carouselRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const revealElements = document.querySelectorAll(
             ".category-block.reveal, .text-center.reveal, .testimonials-section.reveal, .location.reveal"
@@ -37,6 +39,25 @@ const Home: React.FC = () => {
                 revealObserver.unobserve(el);
             });
         };
+    }, []);
+
+    // Auto-scroll logic for Testimonial Carousel
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (!carousel) return;
+
+        const scrollInterval = setInterval(() => {
+            // Check if we've reached the end
+            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                // Instantly snap back to the start
+                carousel.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                // Scroll to the next card (assuming roughly 380px per card with gap)
+                carousel.scrollBy({ left: 380, behavior: "smooth" });
+            }
+        }, 3000); // Scroll every 3 seconds
+
+        return () => clearInterval(scrollInterval);
     }, []);
 
     return (
@@ -204,7 +225,7 @@ const Home: React.FC = () => {
             <section className="testimonials-section section reveal" id="testimonials">
                 <div className="container">
                     <h2 className="section-title text-center">What Our Customers Say</h2>
-                    <div className="testimonial-carousel mt-16">
+                    <div className="testimonial-carousel mt-16" ref={carouselRef}>
                         <TestimonialCard
                             name="Sarah Ahmed"
                             review="The Mutton Haleem here is absolutely divine. Perfect balance of spices and the texture is incredibly rich. Just like homemade!"
