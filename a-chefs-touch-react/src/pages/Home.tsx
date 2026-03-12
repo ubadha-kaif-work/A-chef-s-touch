@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/FeatureCard";
 import MenuItemCard from "../components/MenuItemCard";
+import TestimonialCard from "../components/TestimonialCard";
 
 const Home: React.FC = () => {
     useEffect(() => {
@@ -195,6 +196,33 @@ const Home: React.FC = () => {
                                 View Full Menu <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </Link>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Testimonials Section */}
+            <section className="testimonials-section section reveal" id="testimonials">
+                <div className="container">
+                    <h2 className="section-title text-center">What Our Customers Say</h2>
+                    <div className="testimonial-grid mt-16">
+                        <TestimonialCard
+                            name="Sarah Ahmed"
+                            review="The Mutton Haleem here is absolutely divine. Perfect balance of spices and the texture is incredibly rich. Just like homemade!"
+                            rating={5}
+                            date="March 10, 2026"
+                        />
+                        <TestimonialCard
+                            name="Farhaan K."
+                            review="Ordered the Chicken Tikka Cones for a family gathering and they were a massive hit. The kids loved them and the delivery was exactly on time."
+                            rating={5}
+                            date="February 28, 2026"
+                        />
+                        <TestimonialCard
+                            name="Ayesha S."
+                            review="The best place in Vaniyambadi for authentic Ramzan snacks. The Spring Chicken is perfectly crispy every single time."
+                            rating={4}
+                            date="March 05, 2026"
+                        />
                     </div>
                 </div>
             </section>
