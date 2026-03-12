@@ -589,8 +589,8 @@ a {
 
 .footer-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -601,7 +601,7 @@ a {
 
 .footer-desc {
   color: var(--text-muted);
-  max-width: 400px;
+  max-width: 350px;
   margin-bottom: 2rem;
 }
 
@@ -627,21 +627,36 @@ a {
   transform: scale(0.9);
 }
 
-.footer-contact h3 {
-  font-size: 1.3rem;
+/* New Footer Link Groups */
+.footer-contact h3,
+.footer-links-group h3 {
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
-.footer-contact ul {
+.footer-contact ul,
+.footer-links-group ul {
   list-style: none;
 }
 
-.footer-contact ul li {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.footer-contact ul li,
+.footer-links-group ul li {
   margin-bottom: 1rem;
+}
+
+.footer-contact ul li a,
+.footer-links-group ul li a {
   color: var(--text-muted);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-contact ul li a:hover,
+.footer-links-group ul li a:hover {
+  color: var(--accent);
 }
 
 .footer-contact ul li i {
@@ -763,7 +778,7 @@ a {
 
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 }
 

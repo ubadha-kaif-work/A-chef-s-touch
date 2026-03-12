@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
     return (
@@ -18,12 +19,31 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
+                <div className="footer-links-group">
+                    <h3>Our Menu</h3>
+                    <ul>
+                        <li><Link to="/menu">Mutton Haleem</Link></li>
+                        <li><Link to="/menu">Ramzan Snacks</Link></li>
+                        <li><Link to="/menu">Special Gravies</Link></li>
+                        <li><Link to="/menu">Desserts</Link></li>
+                    </ul>
+                </div>
+
                 <div className="footer-contact">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><i className="fa-solid fa-phone" aria-hidden="true"></i> <span>+91 86085 25323</span></li>
-                        <li><i className="fa-solid fa-phone" aria-hidden="true"></i> <span>+91 93455 54242</span></li>
-                        <li><i className="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Vaniyambadi</span></li>
+                        <li><a href="tel:+918608525323"><i className="fa-solid fa-phone" aria-hidden="true"></i> <span>+91 86085 25323</span></a></li>
+                        <li><a href="tel:+919345554242"><i className="fa-solid fa-phone" aria-hidden="true"></i> <span>+91 93455 54242</span></a></li>
+                        <li><a href="#location"><i className="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Vaniyambadi</span></a></li>
+                    </ul>
+                </div>
+
+                <div className="footer-links-group">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
                     </ul>
                 </div>
             </div>
