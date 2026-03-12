@@ -204,7 +204,7 @@ const Home: React.FC = () => {
             <section className="testimonials-section section reveal" id="testimonials">
                 <div className="container">
                     <h2 className="section-title text-center">What Our Customers Say</h2>
-                    <div className="testimonial-grid mt-16">
+                    <div className="testimonial-carousel mt-16">
                         <TestimonialCard
                             name="Sarah Ahmed"
                             review="The Mutton Haleem here is absolutely divine. Perfect balance of spices and the texture is incredibly rich. Just like homemade!"
@@ -222,6 +222,18 @@ const Home: React.FC = () => {
                             review="The best place in Vaniyambadi for authentic Ramzan snacks. The Spring Chicken is perfectly crispy every single time."
                             rating={4}
                             date="March 05, 2026"
+                        />
+                        <TestimonialCard
+                            name="Rizwan M."
+                            review="Their Butter Chicken gravy is insanely good. I highly recommend pre-ordering it for weekend dinners. Portions are generous too."
+                            rating={5}
+                            date="March 11, 2026"
+                        />
+                        <TestimonialCard
+                            name="Zainab Faheem"
+                            review="I’ve tried almost all their desserts. The Lab E Khaas is an absolute must-try! Very premium packaging and great taste."
+                            rating={5}
+                            date="January 15, 2026"
                         />
                     </div>
                 </div>
