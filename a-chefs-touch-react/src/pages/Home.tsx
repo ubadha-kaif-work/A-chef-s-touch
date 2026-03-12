@@ -7,7 +7,7 @@ import TestimonialCard from "../components/TestimonialCard";
 const Home: React.FC = () => {
     useEffect(() => {
         const revealElements = document.querySelectorAll(
-            ".category-block.reveal, .text-center.reveal, .location.reveal",
+            ".category-block.reveal, .text-center.reveal, .testimonials-section.reveal, .location.reveal"
         );
 
         const revealObserver = new IntersectionObserver(
