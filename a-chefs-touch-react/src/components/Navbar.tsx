@@ -70,12 +70,14 @@ const Navbar: React.FC = () => {
                             <a href="#home" className="nav-link" onClick={(e) => handleHashClick(e, '#home')}>Home</a>
                             <a href="#why-us" className="nav-link" onClick={(e) => handleHashClick(e, '#why-us')}>Why Us</a>
                             <Link to="/menu" className="nav-link">Menu</Link>
+                            <Link to="/certificate" className="nav-link">Certificate</Link>
                         </>
                     ) : (
                         <>
                             <Link to="/#home" className="nav-link">Home</Link>
                             <Link to="/#why-us" className="nav-link">Why Us</Link>
                             <Link to="/menu" className="nav-link">Menu</Link>
+                            <Link to="/certificate" className="nav-link">Certificate</Link>
                         </>
                     )}
                 </div>

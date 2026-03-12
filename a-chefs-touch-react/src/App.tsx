@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
+import Certificate from './pages/Certificate';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/certificate" element={<Certificate />} />
       </Routes>
       <Footer />
 
